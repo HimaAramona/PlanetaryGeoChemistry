@@ -19,7 +19,13 @@ Rc = input('Core Radius (in Earth Radii): ')*REarth;%km
 Xcore = .3259;
 Xmantle = 1-.3259;
 XH2O = input('Water mass fraction: ');
-filename = input('Filename to save variables (ending with .mat): ');
+
+outputFolder = 'outputs/';
+filename = 'output_';
+curTime = datestr(now,'mm-dd-yyyy HH-MM'); 
+suffix = '.mat';
+filename = strcat(outputFolder, filename, curTime, suffix);
+%input('Filename to save variables (ending with .mat): ');
 
 Mm = Xmantle * Mp;
 Mcore = Xcore * Mp;
