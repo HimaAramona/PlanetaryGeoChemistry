@@ -18,6 +18,17 @@ km = 4.2;
 
 Dhyd = (Tf - Ts) * km / qm;
 
+%solving for decarb temp at given Z from Foley Smye 2018 equation 8
+A = 3.125 * 10^-3; %k/m
+B = 835.5; %kelvin
+%T_decarb = A(Rp-z)+B;
+
+%Finding T at given depth Z in crust
+%T = ((qm/km)*z) + Ts
+
+%solve for Z decarb by setting foley and crust temp equal
+z_decarb = ((A*Rp)+B-Ts)/((qm/km)+A);
+
 surface = (m0 - f_water * Mm);
 
 if f_h*rho*4*pi()/3*(Rp^3 - (Rp-Dhyd)^3) > surface && surface > 0;
